@@ -1,4 +1,4 @@
-# BIOL7210 Genomics Workflow
+# 🧬🦠 BIOL7210 Genomics Workflow
 
 **Author:** Sanya Badole  
 **Course:** BIOL7210  
@@ -33,24 +33,29 @@ The workflow uses **Nextflow DSL2**, supports Docker, and is fully runnable on a
 
 | Dependency        | Version                                  |
 |-------------------|------------------------------------------|
-| **Nextflow**      | `24.10.5 build 5935`                     |
-| **Docker**        | `>= 20.10`                               |
+| **Nextflow**      | 24.10.5 build 5935                       |
+| **Docker**        | Docker version 28.0.1, build 068a01e     |
 | **OS Tested**     | MacOS 14.4.1 (ARM64) / WSL2 Ubuntu 22.04 |
 | **Architecture**  | ARM64 / x86_64                           |
  
 ---
 
+### Repo Structure
+
+```
+Nextflow_Exercise/
+├── main.nf                 # Main Nextflow pipeline script
+├── nextflow.config         # Pipeline configuration (Docker containers, resources, profiles)
+├── README.md               # Project documentation and usage instructions
+├── workflow_diagram.png    # Visual diagram showing workflow structure
+└── test_data/              # Small example dataset used for testing
+   ├── ecoli_demo_R1.fastq.gz
+   └── ecoli_demo_R2.fastq.gz
+
+```
 ### Test Data
 
-**Included** in `test_data/`:
-
-```
-test_data/
-├── ecoli_demo_R1.fastq.gz
-└── ecoli_demo_R2.fastq.gz
-```
-
-These are truncated (~4,000 lines) paired-end FASTQ files suitable for fast runtime.
+**Included** in `test_data/` are truncated (~4,000 lines) paired-end FASTQ files suitable for fast runtime.
 Total runtime with test data: ~3–5 minutes
 
 ---
@@ -70,6 +75,9 @@ nextflow run main.nf \
   --outdir results \
   -profile docker
 ```
+‼️ Note - Make sure you install and run docker before executing this command
+
+---
 
 ### Output directory structure
 
@@ -80,9 +88,10 @@ results/
 |   └── *_trimmed_R2.fastq.gz
 ├── assembly/
 │   └── *_megahit_contigs.fasta
-├── stats/
-│   └── *_read_stats.txt
+└── stats/
+    └── *_read_stats.txt
 ```
+---
 
-🔁 Workflow Diagram
-![Workflow Diagram](assets/workflow_diagram.png)
+### Workflow Diagram
+![Workflow Diagram](workflow_diagram.png)
