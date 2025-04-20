@@ -89,7 +89,7 @@ results/
 ├── assembly/
 │   └── *_megahit_contigs.fasta
 └── stats/
-    └── *_read_stats.txt
+    └── *_read_stats.txt 
 ```
 ---
 
